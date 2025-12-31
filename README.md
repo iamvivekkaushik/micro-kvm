@@ -67,6 +67,7 @@ The optocoupler ensures:
 
 ## Wiring Diagram
 
+```
 ESP8266 NODEMCU V3                          CIRCUIT BOARD / WIRING                               PC MOTHERBOARD & CASE
     +--------------------+                                                                      +---------------------+
     |                    |                                                                      |                     |
@@ -99,3 +100,4 @@ ESP8266 NODEMCU V3                          CIRCUIT BOARD / WIRING              
                                                                                 [ ( + ) LED ( - ) ]
                                                                                  Physical Case LED
                                                                                    (Pass-Through)
+```
