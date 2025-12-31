@@ -65,3 +65,37 @@ The optocoupler ensures:
 ### 1️⃣ Power Button Trigger
 **Simulates a single press of the PC power button**
 
+## Wiring Diagram
+
+ESP8266 NODEMCU V3                          CIRCUIT BOARD / WIRING                               PC MOTHERBOARD & CASE
+    +--------------------+                                                                      +---------------------+
+    |                    |                                                                      |                     |
+    |                    |          [POWER SWITCH CIRCUIT]                                      |  Front Panel Header |
+    |                    |                                                                      |                     |
+    |  D1 (GPIO 5)    ---|----[ 220 Ohm ]----(Pin 1) PC817 Optocoupler (Pin 4)-+--<Wire A>------|-- POWER SW (+)      |
+    |  (Output: Control) |                           [   .   ]        _________|                |                     |
+    |                    |                           [       ]        |                         |                     |
+    |  GND --------------|-------------------(Pin 2) [_______] (Pin 3)--------+---<Wire B>------|-- POWER SW (-)      |
+    |                    |                                 ___________|       |                 |                     |
+    |                    |                                 |                  |                 |                     |
+    |                    |                                 +------[ O ]-------+                 +---------------------+
+    |                    |                                 Physical Case Button                  (Wires A & B connect
+    |                    |                                  (Pass-Through)                        in parallel)
+    |                    |
+    |                    |
+    |                    |                                                                                            
+    |                    |          [POWER LED STATUS CIRCUIT]                                                         
+    |                    |                                                                      +---------------------+
+    |                    |                                                                      |                     |
+    |  D5 (GPIO 14)   ---|----------(Pin 4) PC817 Optocoupler (Pin 1)-<Wire C>-[ 220 Ohm ]--+---|-- PLED (+)          |
+    |  (Input: Sense)    |                    [   .   ]                                     |   |  (5V Output)        |
+    |                    |                    [       ]                                _____|   |                     |
+    |                    |                    [       ]                               |         |                     |
+    |                    |                    [       ]                               |         |  PLED (-)           |
+    |  GND --------------|---------+--(Pin 3) [_______] (Pin 2)-----<Wire D>-----------------+--|-- (Ground)          |
+    |                    |                                                            |      |  |                     |
+    |                    |                                                            |      |  +---------------------+
+    +--------------------+                                                            |      |
+                                                                                [ ( + ) LED ( - ) ]
+                                                                                 Physical Case LED
+                                                                                   (Pass-Through)
